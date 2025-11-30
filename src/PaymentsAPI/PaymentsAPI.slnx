@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/01-Presentation/">
+    <Project Path="PaymentsAPI/PaymentsAPI.csproj" />
+  </Folder>
+  <Folder Name="/02-Application/">
+    <Project Path="Payments.Application/Payments.Application.csproj" />
+  </Folder>
+  <Folder Name="/03-Domain/">
+    <Project Path="Payments.Domain/Payments.Domain.csproj" />
+  </Folder>
+  <Folder Name="/04-Infra/" />
+  <Folder Name="/04-Infra/04.1-Data/">
+    <Project Path="Payments.Data/Payments.Data.csproj" />
+  </Folder>
+</Solution>

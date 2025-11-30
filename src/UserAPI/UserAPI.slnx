@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/01-Presentation/">
+    <Project Path="UserAPI/UserAPI.csproj" />
+  </Folder>
+  <Folder Name="/02-Application/">
+    <Project Path="Users.Application/Users.Application.csproj" Id="b825c117-8c39-473b-9299-ff50e29d2d2f" />
+  </Folder>
+  <Folder Name="/03-Domain/">
+    <Project Path="Users.Domain/Users.Domain.csproj" Id="de50e2e1-21e1-4728-b320-61eb0aabee9e" />
+  </Folder>
+  <Folder Name="/04-Infra/" />
+  <Folder Name="/04-Infra/04.1-Data/">
+    <Project Path="Users.Data/Users.Data.csproj" Id="e7b9780c-0cfe-49f7-9a54-cb4c2148ba9b" />
+  </Folder>
+  <Folder Name="/05-Tests/" />
+</Solution>

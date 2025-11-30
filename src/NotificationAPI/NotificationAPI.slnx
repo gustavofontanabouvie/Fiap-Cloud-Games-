@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/01-Presentation/">
+    <Project Path="NotificationAPI/NotificationAPI.csproj" />
+  </Folder>
+  <Folder Name="/02-Application/" />
+  <Folder Name="/03-Domain/" />
+  <Folder Name="/04-Tests/" />
+</Solution>
