@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using static Users.Domain.Constants;
 
 namespace Users.Domain
@@ -12,22 +6,23 @@ namespace Users.Domain
     public class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
 
-        public string PasswordHash { get; set; }
+        public string PasswordHash { get; private set; }
 
-        public string Role { get; set; }
+        public string Role { get; private set; }
 
-        public DateOnly BirthDate { get; set; }
+        public DateOnly BirthDate { get; private set; }
 
         protected User() { }
 
         public User(string name, string email, string passwordHash, string role, DateOnly birthDate)
         {
+            ValidateDomain(name, email, passwordHash, role);
+
             Id = Guid.NewGuid();
             Name = name;
             Email = email;
@@ -36,7 +31,7 @@ namespace Users.Domain
             BirthDate = birthDate;
         }
 
-        private void ValidateDomain(string name, string email, string passwordHash, string role)
+        private static void ValidateDomain(string name, string email, string passwordHash, string role)
         {
             if (string.IsNullOrEmpty(name))
                 throw new DomainException("Name is mandatory");
@@ -52,7 +47,7 @@ namespace Users.Domain
         }
     }
 
-    internal class DomainException : Exception
+    public class DomainException : Exception
     {
         public DomainException(string message) : base(message) { }
     }
