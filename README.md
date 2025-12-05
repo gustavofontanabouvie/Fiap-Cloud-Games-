@@ -89,4 +89,4 @@ dotnet run
 
 ---
 
-Developed by **Gustavo Fontana**.
+Developed by **Gustavo Fontana Bouvie**.
