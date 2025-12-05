@@ -7,18 +7,12 @@ namespace Users.Domain
     {
         [Key]
         public Guid Id { get; private set; }
-
         public DateTime AcquiredAt { get; private set; }
-
         public decimal PricePaid { get; private set; }
-
         public Guid UserId { get; private set; }
         public Guid GameId { get; private set; }
-
         public string GameTitle { get; private set; }
-
         public string CoverImageUrl { get; private set; }
-
         public virtual User User { get; private set; }
 
         protected UserLibrary() { }

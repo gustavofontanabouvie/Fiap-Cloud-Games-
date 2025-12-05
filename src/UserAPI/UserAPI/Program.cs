@@ -1,10 +1,20 @@
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using UserAPI.Consumers;
+using Users.Data.Context;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+
+builder.Services.AddDbContext<UsersDbContext>
+    (options =>
+    {
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging();
+        options.EnableDetailedErrors();
+    });
 
 builder.Services.AddMassTransit(x =>
 {
