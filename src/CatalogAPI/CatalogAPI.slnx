@@ -2,8 +2,15 @@
   <Folder Name="/01-Presentation/">
     <Project Path="CatalogAPI/CatalogAPI.csproj" />
   </Folder>
-  <Folder Name="/02-Application/" />
-  <Folder Name="/03-Domain/" />
+  <Folder Name="/02-Application/">
+    <Project Path="Catalog.Applications/Catalog.Applications.csproj" Id="acaf378e-0840-404c-b15b-1459d025a703" />
+  </Folder>
+  <Folder Name="/03-Domain/">
+    <Project Path="Catalog.Domain/Catalog.Domain.csproj" Id="7c50ee14-5216-4b14-b644-aa7805d1f4db" />
+  </Folder>
   <Folder Name="/04-Infra/" />
+  <Folder Name="/04-Infra/04.1-Data/">
+    <Project Path="Catalog.Data/Catalog.Data.csproj" Id="2cee0237-cc2b-4dbf-9b7f-c055f77884c7" />
+  </Folder>
   <Folder Name="/05-Tests/" />
 </Solution>

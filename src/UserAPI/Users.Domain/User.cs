@@ -27,6 +27,7 @@ namespace Users.Domain
             BirthDate = birthDate;
         }
 
+
         private static void ValidateDomain(string name, string email, string passwordHash, string role)
         {
             if (string.IsNullOrEmpty(name))
