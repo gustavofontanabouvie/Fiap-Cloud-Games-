@@ -42,12 +42,35 @@ public class Order
         GatewayTransactionId = null;
     }
 
+    public void SetTransactionId(string transactionId)
+    {
+        if(string.IsNullOrWhiteSpace(transactionId))
+            throw new DomainException("Transaction ID cannot be null or empty");
+
+        GatewayTransactionId = transactionId;
+    }
+
+    public void MarkAsPaid()
+    {
+        if (PaymentStatus != OrderPaymentStatus.Pending)
+            return;
+
+        PaymentStatus = OrderPaymentStatus.Paid;
+
+        FulfillmentStatus = OrderFulfillmentStatus.Delivered;
+    }
+
+    public void MarkAsFailed()
+    {
+        PaymentStatus = OrderPaymentStatus.Failed;
+        FulfillmentStatus = OrderFulfillmentStatus.Failed;
+    }
+
+
+
     public static void ValidateDomain(decimal price)
     {
         if (price < 0)
             throw new DomainException("Price cannot be negative");
-
-
-
     }
 }
