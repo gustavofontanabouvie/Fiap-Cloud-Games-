@@ -1,6 +1,8 @@
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Payments.Application.Interfaces;
 using Payments.Application.Services;
+using Payments.Data.Context;
 using PaymentsAPI.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IPaymentGatewayService, PaymentGatewayService>();
 
 #endregion
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+if (string.IsNullOrEmpty(connectionString))
+    throw new InvalidOperationException("Connection String DefaultConnection not found");
+
+builder.Services.AddDbContext<PaymentsDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+    options.EnableSensitiveDataLogging();
+    options.EnableDetailedErrors();
+
+});
+
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<PaymentRequestConsumer>();
