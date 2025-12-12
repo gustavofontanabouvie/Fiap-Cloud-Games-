@@ -17,6 +17,12 @@ public class PaymentsDbContext : DbContext
         {
             entity.HasKey(o => o.Id);
 
+            entity.Property(o => o.Number)
+            .ValueGeneratedOnAdd()
+            .UseIdentityColumn();
+
+            entity.HasIndex(o => o.Number).IsUnique();
+
             entity.Property(o => o.PricePaid)
             .HasColumnType("decimal(18,2)")
             .IsRequired();

@@ -25,12 +25,11 @@ public class Order
 
     protected Order() { }
 
-    public Order(int number, decimal pricePaid, Guid userId, Guid gameId)
+    public Order(decimal pricePaid, Guid userId, Guid gameId)
     {
         ValidateDomain(pricePaid);
 
         Id = Guid.NewGuid();
-        Number = number;
         PricePaid = pricePaid;
         UserId = userId;
         GameId = gameId;
@@ -44,7 +43,7 @@ public class Order
 
     public void SetTransactionId(string transactionId)
     {
-        if(string.IsNullOrWhiteSpace(transactionId))
+        if (string.IsNullOrWhiteSpace(transactionId))
             throw new DomainException("Transaction ID cannot be null or empty");
 
         GatewayTransactionId = transactionId;
