@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Payments.Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace Payments.Application.Interfaces
     public interface IPaymentGatewayService
     {
         //true se coboru, false se falhou
-        Task<bool> ChargeCreditCardAsync(string creditCardToken, decimal amount);
+        Task<bool> ChargeCreditCardAsync(ProcessPaymentCommand command);
     }
 }

@@ -38,7 +38,7 @@ namespace PaymentsAPI.Consumers
                     throw new Exception("Preço do jogo inválido.");
                 }
 
-                var charged = await _paymentGatewayService.ChargeCreditCardAsync(command.CreditCardToken, realPrice);
+                var charged = await _paymentGatewayService.ChargeCreditCardAsync(command);
 
                 if (charged)
                 {

@@ -1,6 +1,4 @@
-﻿
-
-using static Payments.Domain.Constants;
+﻿using static Payments.Domain.Common.Constants;
 
 namespace Payments.Domain;
 

@@ -1,5 +1,4 @@
-﻿
-namespace Payments.Domain;
+﻿namespace Payments.Domain.Common;
 
 public class Constants
 {

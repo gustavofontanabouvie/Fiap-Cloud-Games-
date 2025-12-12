@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Payments.Application.Interfaces;
 using Payments.Application.Services;
 using Payments.Data.Context;
+using Payments.Data.Repositories.Implementation;
+using Payments.Data.Repositories.Interface;
 using PaymentsAPI.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 #region "DI"
 
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddTransient<IPaymentGatewayService, PaymentGatewayService>();
+
 
 #endregion
 
