@@ -10,14 +10,6 @@ using PaymentsAPI.Consumers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-#region "DI"
-
-builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
-builder.Services.AddScoped<IPaymentService, PaymentService>();
-builder.Services.AddTransient<IPaymentGatewayService, PaymentGatewayService>();
-
-
-#endregion
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -31,6 +23,12 @@ builder.Services.AddDbContext<PaymentsDbContext>(options =>
     options.EnableDetailedErrors();
 
 });
+
+#region "DI"
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddTransient<IPaymentGatewayService, PaymentGatewayService>();
+#endregion
 
 builder.Services.AddMassTransit(x =>
 {

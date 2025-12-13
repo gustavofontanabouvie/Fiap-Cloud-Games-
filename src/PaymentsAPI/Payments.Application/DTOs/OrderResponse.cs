@@ -6,4 +6,4 @@ using System.Threading.Tasks;
 
 namespace Payments.Application.DTOs;
 
-public record CreateOrderResponse(Guid id, int number, string status);
+public record OrderResponse(Guid id, int number, string status);

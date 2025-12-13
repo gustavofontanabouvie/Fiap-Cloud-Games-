@@ -7,5 +7,6 @@ namespace Payments.Application.Interfaces;
 
 public interface IPaymentService
 {
-    Task<Result<CreateOrderResponse>> CreateOrderAsync(CreatedOrderRequest request);
+    Task<Result<OrderResponse>> CreateOrderAsync(CreatedOrderRequest request, CancellationToken cancellationToken);
+    Task<Result<OrderResponse>> GetOrderByPaymentStatus(int status, CancellationToken cancellationToken);
 }
